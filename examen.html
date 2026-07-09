@@ -25,6 +25,11 @@
   #pantalla-carga{min-height:100dvh; display:flex; align-items:center; justify-content:center;
     color:var(--muted); font-size:15px;}
   #pantalla-error{display:none; min-height:100dvh; align-items:center; padding:40px 0;}
+  #pantalla-deshabilitado{display:none; min-height:100dvh; align-items:center; padding:40px 0;}
+  .sello-estado{display:inline-flex; align-items:center; gap:8px; padding:7px 16px; border-radius:20px;
+    font-size:13px; font-weight:600; letter-spacing:.03em; background:#eef0f3; color:var(--muted);
+    border:1px solid var(--line); margin:0 0 22px;}
+  .sello-estado i{width:8px; height:8px; border-radius:50%; background:var(--muted);}
 
   /* ---- Ingreso ---- */
   #pantalla-ingreso{display:none; min-height:100dvh; align-items:center; padding:40px 0;}
@@ -155,6 +160,19 @@
       <h1 class="serif">No se pudo cargar el examen</h1>
       <p id="error-mensaje" style="color:var(--ink-soft); font-size:14.5px;"></p>
       <a class="boton oro ancho" style="display:block; text-align:center; text-decoration:none;" href="index.html">Volver a la lista de exámenes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DESHABILITADO ===================== -->
+<section id="pantalla-deshabilitado">
+  <div class="envoltura">
+    <div class="tarjeta-ingreso">
+      <div class="eyebrow">Evaluaciones en línea</div>
+      <h1 class="serif">Este examen no está disponible</h1>
+      <span class="sello-estado"><i></i>Deshabilitado</span>
+      <p id="deshabilitado-mensaje" style="color:var(--ink-soft); font-size:14.5px; margin:0 0 6px;">Tu profesora deshabilitó temporalmente este examen. Vuelve a intentarlo más tarde o consúltale directamente.</p>
+      <a class="enlace-volver" href="index.html">← Volver a la lista de exámenes</a>
     </div>
   </div>
 </section>
@@ -528,6 +546,11 @@
     $("#pantalla-error").style.display = "flex";
   }
 
+  function mostrarDeshabilitado(){
+    $("#pantalla-carga").style.display = "none";
+    $("#pantalla-deshabilitado").style.display = "flex";
+  }
+
   async function cargarConfiguracion(){
     const id = idDesdeUrl();
     if (!id){
@@ -554,6 +577,11 @@
 
     CLAVE = "examen:" + CONFIG.idExamen;
     DURACION_MS = (CONFIG.duracionMinutos || 30) * 60 * 1000;
+
+    if (CONFIG.activo === false){
+      mostrarDeshabilitado();
+      return;
+    }
 
     // Reinicio para el profesor: abre el examen con &reset al final de la URL.
     if (location.search.indexOf("reset") !== -1){

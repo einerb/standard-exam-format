@@ -39,6 +39,14 @@
   .tarjeta .meta strong{color:var(--ink); font-weight:600;}
   .flecha{position:absolute; right:22px; top:50%; transform:translateY(-50%); color:var(--muted); font-size:18px;}
 
+  .tarjeta.deshabilitada{cursor:not-allowed; opacity:.65;}
+  .tarjeta.deshabilitada::before{background:var(--muted);}
+  .tarjeta.deshabilitada:hover{transform:none; box-shadow:var(--shadow);}
+  .badge-estado{position:absolute; right:22px; top:22px; display:inline-flex; align-items:center; gap:6px;
+    padding:4px 11px; border-radius:20px; font-size:11px; font-weight:600; letter-spacing:.04em;
+    background:#eef0f3; color:var(--muted); border:1px solid var(--line); white-space:nowrap;}
+  .badge-estado i{width:6px; height:6px; border-radius:50%; background:var(--muted);}
+
   .vacio, .cargando, .error{color:var(--muted); font-size:14.5px; padding:20px 0;}
   .error{color:#c24b33;}
 
@@ -47,6 +55,7 @@
     h1{font-size:25px;}
     .tarjeta{padding:18px 20px;}
     .flecha{display:none;}
+    .badge-estado{position:static; display:inline-flex; margin-top:10px;}
   }
 </style>
 </head>
@@ -55,7 +64,7 @@
 <div class="envoltura">
   <div class="eyebrow">Evaluaciones en línea</div>
   <h1 class="serif">Elige la materia de tu examen</h1>
-  <p class="intro">Selecciona la evaluación que vas a presentar. Cada examen tiene su propio tiempo, banco de preguntas y lista de estudiantes autorizados.</p>
+  <p class="intro">Selecciona la evaluación que vas a presentar.</p>
 
   <div class="lista" id="lista-examenes">
     <p class="cargando">Cargando lista de exámenes…</p>
@@ -72,19 +81,23 @@
   fetch("examenes/registro.json", { cache: "no-store" })
     .then(res => { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
     .then(lista => {
-      const activos = (lista || []).filter(e => e.activo !== false);
-      if (!activos.length){
+      if (!lista || !lista.length){
         cont.innerHTML = '<p class="vacio">Todavía no hay exámenes publicados.</p>';
         return;
       }
-      cont.innerHTML = activos.map(e => `
-        <a class="tarjeta" href="examen.html?id=${encodeURIComponent(e.idExamen)}">
+      cont.innerHTML = lista.map(e => {
+        const deshabilitado = e.activo === false;
+        const etiqueta = deshabilitado ? '<span class="badge-estado"><i></i>Deshabilitado</span>' : '<span class="flecha">→</span>';
+        const cuerpo = `
           <div class="materia">${escapar(e.materia || "")}</div>
           <h2 class="serif">${escapar(e.titulo || e.idExamen)}</h2>
           ${e.descripcion ? `<p class="descripcion">${escapar(e.descripcion)}</p>` : ""}
           <div class="meta">${e.duracionMinutos ? `<span>Duración: <strong>${escapar(e.duracionMinutos)} min</strong></span>` : ""}</div>
-          <span class="flecha">→</span>
-        </a>`).join("");
+          ${etiqueta}`;
+        return deshabilitado
+          ? `<div class="tarjeta deshabilitada">${cuerpo}</div>`
+          : `<a class="tarjeta" href="examen.html?id=${encodeURIComponent(e.idExamen)}">${cuerpo}</a>`;
+      }).join("");
     })
     .catch(() => {
       cont.innerHTML = '<p class="error">No se pudo cargar la lista de exámenes. Intenta recargar la página.</p>';
