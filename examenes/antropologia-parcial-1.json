@@ -1,0 +1,357 @@
+{
+  "idExamen":"antropologia-parcial-1",
+  "config":{
+    "titulo":"Evaluación Recuperación - ICC Hidekel 2026",
+    "materia":"Antropología Bíblica",
+    "instrucciones":"Lee cada pregunta con atención. Tus preguntas se eligen al azar del banco, así que tu examen es distinto al de tus compañeros. El tiempo corre para todo el examen y no se detiene aunque cierres o recargues la página. Al terminar, pulsa «Finalizar examen».",
+    "duracionMinutos":20,
+    "minutosAlerta":5,
+    "preguntasIcfes":9,
+    "incluirAbierta":true,
+    "urlEnvio":"https://script.google.com/macros/s/AKfycbzGV7_g22zd9Yyu05vJO1zPPwfWpqfmJIUdUVgZcCoVQwbqiu31JmcHsVuMSw0gsubO-w/exec",
+    "tipoEnvio":"google"
+  },
+  "estudiantes":[
+    "Ivan Hernandez",
+    "Sara Hernandez"
+  ],
+  "bancoIcfes":[
+    {
+      "enunciado":"Según Génesis 2:7, el hombre llegó a ser un alma viviente cuando Dios:",
+      "opciones":[
+        "Creó los cielos y la tierra",
+        "Formó al hombre del polvo y sopló en su nariz aliento de vida",
+        "Puso al hombre en el huerto del Edén",
+        "Creó a la mujer de la costilla del hombre"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Según la presentación, el hombre fue creado como resultado de la combinación de:",
+      "opciones":[
+        "Dos elementos terrenales",
+        "Un elemento terrenal y un elemento celestial",
+        "El alma y la mente",
+        "El cuerpo y la sangre"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"¿De qué fue formado el cuerpo del hombre, según Génesis 2:7?",
+      "opciones":[
+        "De la luz",
+        "Del agua",
+        "Del polvo de la tierra",
+        "Del aliento de Dios"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"Para el creyente, el cuerpo es descrito en 1 Corintios 6:19-20 como:",
+      "opciones":[
+        "Una prisión del alma",
+        "Templo del Espíritu Santo",
+        "Vasija de ira",
+        "Morada del pecado"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Los griegos y muchos de los antiguos consideraban el cuerpo como:",
+      "opciones":[
+        "Templo sagrado",
+        "Imagen de Dios",
+        "Una prisión del alma y fuente de todo mal",
+        "Un sacrificio vivo"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"El apóstol Juan advirtió (1 Juan 4:1-3) contra quienes negaban que Jesús:",
+      "opciones":[
+        "Era el Mesías",
+        "Había venido en carne",
+        "Resucitó de los muertos",
+        "Existía desde el principio"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Cuando el cuerpo es dedicado al servicio de Dios, Romanos 12:1 lo reconoce como:",
+      "opciones":[
+        "Sacrificio vivo y santo",
+        "Templo destruido",
+        "Polvo sin valor",
+        "Carne corruptible"
+      ],
+      "correcta":0
+    },
+    {
+      "enunciado":"La Escritura considera el elemento inmaterial del hombre mediante al menos:",
+      "opciones":[
+        "Tres términos distintos",
+        "Cinco términos distintos",
+        "Nueve términos distintos",
+        "Doce términos distintos"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"Las dos palabras más frecuentes para identificar al ser inmaterial del hombre son:",
+      "opciones":[
+        "Mente y corazón",
+        "Alma y espíritu",
+        "Vida y fuerza",
+        "Voluntad y sentimiento"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La palabra hebrea que se traduce «alma» es:",
+      "opciones":[
+        "Ruach",
+        "Pneuma",
+        "Nephesh",
+        "Psuche"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"La palabra griega que se traduce «espíritu» es:",
+      "opciones":[
+        "Psuche",
+        "Pneuma",
+        "Nephesh",
+        "Ruach"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Las palabras originales para alma y espíritu (Nephesh, Psuche, Ruach, Pneuma) significan básicamente:",
+      "opciones":[
+        "Vida y muerte",
+        "Cuerpo y sangre",
+        "Aliento o viento",
+        "Luz y sombra"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"El alma, según la presentación, se define como:",
+      "opciones":[
+        "La parte material del hombre",
+        "La vida consciente: sede de pensamientos, emociones y voluntad",
+        "El soplo que vuelve a Dios",
+        "El polvo de la tierra"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Según Eclesiastés 12:7, al morir el hombre, el espíritu:",
+      "opciones":[
+        "Se duerme en el polvo",
+        "Vuelve a Dios que lo dio",
+        "Desaparece por completo",
+        "Queda en la tierra"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Proverbios 20:27 describe el espíritu del hombre como:",
+      "opciones":[
+        "Vasija de barro",
+        "Lámpara de Jehová",
+        "Soplo pasajero",
+        "Imagen del polvo"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La tricotomía enseña que el hombre está compuesto de:",
+      "opciones":[
+        "Cuerpo y alma",
+        "Alma y espíritu",
+        "Cuerpo, alma y espíritu",
+        "Cuerpo y mente"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"El principal texto que sustenta la tricotomía es:",
+      "opciones":[
+        "Génesis 2:7",
+        "1 Tesalonicenses 5:23",
+        "Mateo 10:28",
+        "Salmo 139:14"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La dicotomía enseña que el hombre está compuesto de:",
+      "opciones":[
+        "Tres partes independientes",
+        "Cuerpo y alma/espíritu, como elementos intercambiables",
+        "Solo cuerpo",
+        "Solo espíritu"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Mateo 10:28 («no temáis a los que matan el cuerpo, mas el alma no pueden matar») se usa como apoyo de:",
+      "opciones":[
+        "La tricotomía",
+        "La dicotomía",
+        "La preexistencia",
+        "El creacionismo"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La teoría que enseña que las almas ya existen en un estado anterior, antes de unirse al cuerpo, es:",
+      "opciones":[
+        "El Creacionismo",
+        "El Traduccionismo",
+        "La Preexistencia",
+        "La Encarnación"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"Entre los principales defensores de la Preexistencia del alma están:",
+      "opciones":[
+        "Jerónimo y Calvino",
+        "Tertuliano y Agustín",
+        "Platón y Orígenes",
+        "Lutero y Agustín"
+      ],
+      "correcta":2
+    },
+    {
+      "enunciado":"El Creacionismo enseña que el alma:",
+      "opciones":[
+        "Se transmite de los padres junto con el cuerpo",
+        "Es creada directamente por Dios en la concepción",
+        "Existe desde la eternidad",
+        "No existe como tal"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"El Traduccionismo (traducianismo) enseña que el alma:",
+      "opciones":[
+        "Es creada de la nada en cada nacimiento",
+        "Se transmite junto con el cuerpo de los padres en la procreación",
+        "Preexiste antes del cuerpo",
+        "Proviene de los ángeles"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"En su estado primitivo de conocimiento, a Adán le fue dada la tarea de:",
+      "opciones":[
+        "Construir un altar",
+        "Nombrar a los animales, recibiendo dominio sobre las criaturas",
+        "Escribir la ley",
+        "Guardar el árbol de la vida"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Adán fue creado con el potencial de:",
+      "opciones":[
+        "Inmortalidad, condicionada a la obediencia",
+        "Muerte inmediata",
+        "Conocimiento infinito",
+        "Poder divino"
+      ],
+      "correcta":0
+    },
+    {
+      "enunciado":"El estado ocupacional de Adán muestra que el Edén:",
+      "opciones":[
+        "Era un lugar de ociosidad",
+        "No era lugar de ociosidad: Adán guardaba y cuidaba el huerto",
+        "Estaba deshabitado",
+        "Solo servía para adorar"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"El carácter del mandamiento probatorio dado a Adán se describe como:",
+      "opciones":[
+        "Moral y universal",
+        "Personal, no moral",
+        "Ceremonial",
+        "Profético"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La prueba de Adán se compara en la presentación con la prueba de:",
+      "opciones":[
+        "Job",
+        "Abraham al ofrecer a Isaac",
+        "Moisés",
+        "Noé"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"En Génesis 3 el agente visible de la tentación fue la serpiente, pero el verdadero tentador fue:",
+      "opciones":[
+        "Un ángel desconocido",
+        "Satanás",
+        "Caín",
+        "La mujer"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"Según la presentación, un deseo se convierte en lujuria cuando:",
+      "opciones":[
+        "Es muy intenso",
+        "Es contrario al Espíritu",
+        "Se repite muchas veces",
+        "Involucra el cuerpo"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La consecuencia inmediata del pecado de Adán y Eva fue:",
+      "opciones":[
+        "La muerte física instantánea",
+        "Un sentimiento de vergüenza: se escondieron por su desnudez",
+        "La expulsión de sus hijos",
+        "La pérdida del habla"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La muerte física ocurre, según la presentación, cuando:",
+      "opciones":[
+        "El alma deja de pensar",
+        "El espíritu se separa del cuerpo y el cuerpo vuelve al polvo",
+        "El hombre peca por primera vez",
+        "El creyente es arrebatado"
+      ],
+      "correcta":1
+    },
+    {
+      "enunciado":"La muerte espiritual se define como:",
+      "opciones":[
+        "El sueño del alma",
+        "La separación de Dios",
+        "El fin del cuerpo",
+        "La segunda muerte"
+      ],
+      "correcta":1
+    }
+  ],
+  "bancoAbiertas":[
+    "Explica la diferencia entre la tricotomía y la dicotomía, indicando un texto bíblico que respalde cada postura.",
+    "Describe las tres teorías sobre el origen del alma (Preexistencia, Creacionismo y Traduccionismo) y menciona un defensor de cada una.",
+    "A partir de Génesis 2:7, explica en qué sentido el hombre es «alma viviente» y cómo se relacionan el elemento terrenal y el aliento de Dios.",
+    "Explica las tres categorías de muerte (física, espiritual y eterna) según la presentación, con un texto de apoyo para cada una.",
+    "Explica por qué la prueba de Adán se describe como «personal, no moral» y su semejanza con la prueba de Abraham."
+  ]
+}

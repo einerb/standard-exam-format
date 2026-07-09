@@ -1,0 +1,526 @@
+{
+  "idExamen": "evangelios-parcial-1",
+  "config": {
+    "titulo": "Evaluación Final - ICC Hidekel 2026",
+    "materia": "Los cuatro Evangelios",
+    "instrucciones": "Lee cada pregunta con atención. Tus preguntas se eligen al azar del banco, así que tu examen es distinto al de tus compañeros. El tiempo corre para todo el examen y no se detiene aunque cierres o recargues la página. Al terminar, pulsa «Finalizar examen».",
+    "duracionMinutos": 30,
+    "minutosAlerta": 5,
+    "preguntasIcfes": 14,
+    "incluirAbierta": true,
+    "urlEnvio": "https://script.google.com/macros/s/AKfycbzGV7_g22zd9Yyu05vJO1zPPwfWpqfmJIUdUVgZcCoVQwbqiu31JmcHsVuMSw0gsubO-w/exec",
+    "tipoEnvio": "google"
+  },
+  "estudiantes": [
+    "Edwin Osorio",
+    "Estiven Gonzalez",
+    "Camilo Martinez",
+    "Karina Velazquez",
+    "Angelica Atencia",
+    "Keiner Gutierrez",
+    "Samuel Gutierrez",
+    "Mariana Valdez",
+    "Isai Vizcaino",
+    "Hugo Montaña",
+    "Ana Pino"
+  ],
+  "bancoIcfes": [
+    {
+      "enunciado": "El término «evangelio» (euangélion) significa literalmente:",
+      "opciones": [
+        "Ley escrita",
+        "Buena noticia o buen mensaje",
+        "Profecía cumplida",
+        "Genealogía sagrada"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Los cuatro evangelios canónicos fueron redactados originalmente en:",
+      "opciones": [
+        "Arameo",
+        "Hebreo",
+        "Griego koiné",
+        "Latín"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "El término «sinóptico» (de syn + opsis) alude a que estos evangelios:",
+      "opciones": [
+        "Fueron escritos por un mismo autor",
+        "Pueden leerse en paralelo por su visión conjunta",
+        "Narran solo la pasión de Cristo",
+        "Se escribieron en sinagogas"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Se consideran evangelios sinópticos:",
+      "opciones": [
+        "Mateo, Marcos y Juan",
+        "Marcos, Lucas y Juan",
+        "Mateo, Marcos y Lucas",
+        "Mateo, Lucas y Juan"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "Afirmar que los evangelios no son «biografías modernas» quiere decir que:",
+      "opciones": [
+        "Contienen datos falsos sobre Jesús",
+        "Fueron escritos muchos siglos después",
+        "Tienen una intencionalidad teológica, no solo informativa",
+        "No mencionan hechos históricos"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "El grupo judío caracterizado por su apego riguroso a la Ley y a la pureza ritual era:",
+      "opciones": [
+        "Los saduceos",
+        "Los fariseos",
+        "Los esenios",
+        "Los zelotes"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Los saduceos se distinguían principalmente por ser:",
+      "opciones": [
+        "Revolucionarios armados contra Roma",
+        "Aristócratas del Templo aliados con el poder romano",
+        "Una comunidad apartada en el desierto",
+        "Maestros ambulantes de la Ley"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La comunidad de Qumrán, ligada a los esenios, se relaciona con el hallazgo de:",
+      "opciones": [
+        "La Piedra de Pilato",
+        "Los Rollos del Mar Muerto",
+        "La sinagoga de Cafarnaúm",
+        "La casa de Pedro"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Los zelotes se caracterizaban por:",
+      "opciones": [
+        "Colaborar con los procuradores romanos",
+        "Buscar liberar a Israel del dominio romano, incluso por la fuerza",
+        "Rechazar el Templo de Jerusalén",
+        "Negar la resurrección"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La región central, habitada por gente despreciada por los judíos ortodoxos, era:",
+      "opciones": [
+        "Galilea",
+        "Judea",
+        "Samaria",
+        "Decápolis"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "La ciudad que fue centro del ministerio de Jesús en Galilea fue:",
+      "opciones": [
+        "Belén",
+        "Nazaret",
+        "Cafarnaúm",
+        "Jericó"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "El hallazgo arqueológico que confirma la existencia del gobernador que condenó a Jesús es:",
+      "opciones": [
+        "La inscripción de Pilato en Cesarea",
+        "Los Rollos del Mar Muerto",
+        "El Muro de los Lamentos",
+        "La casa de Pedro en Cafarnaúm"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En el mundo de los evangelios, los publicanos eran vistos por el pueblo como:",
+      "opciones": [
+        "Líderes religiosos",
+        "Traidores por recaudar impuestos para Roma",
+        "Sacerdotes del Templo",
+        "Maestros de la Ley"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La «Fuente Q» se postula para explicar:",
+      "opciones": [
+        "Los milagros comunes a los cuatro evangelios",
+        "El material de dichos común a Mateo y Lucas ausente en Marcos",
+        "El origen del Evangelio de Juan",
+        "La destrucción del Templo"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El nombre «Q» de la fuente hipotética proviene de la palabra alemana Quelle, que significa:",
+      "opciones": [
+        "Dicho",
+        "Fuente",
+        "Copia",
+        "Cuatro"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Según la hipótesis más común, el primer evangelio escrito, usado como fuente por los otros, fue:",
+      "opciones": [
+        "Mateo",
+        "Marcos",
+        "Lucas",
+        "Juan"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El material exclusivo del Evangelio de Lucas se conoce como:",
+      "opciones": [
+        "Fuente Q",
+        "Fuente L",
+        "Fuente M",
+        "Fuente Proto-Lucas"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Mateo organiza su evangelio en cinco grandes discursos, presentando a Jesús como:",
+      "opciones": [
+        "El nuevo Adán",
+        "El nuevo Moisés",
+        "El nuevo David",
+        "El nuevo Elías"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El primero de los cinco grandes discursos de Mateo es:",
+      "opciones": [
+        "El discurso escatológico",
+        "Las parábolas del Reino",
+        "El Sermón del Monte",
+        "El discurso sobre la Iglesia"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "Mateo se dirige principalmente a cristianos de origen judío para probar que Jesús es:",
+      "opciones": [
+        "El Salvador universal de los gentiles",
+        "El Mesías prometido, cumplimiento de la Ley y los Profetas",
+        "El Siervo sufriente y silencioso",
+        "El Verbo preexistente"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Antes de seguir a Jesús, Mateo (Leví) se desempeñaba como:",
+      "opciones": [
+        "Pescador",
+        "Recaudador de impuestos",
+        "Fariseo",
+        "Médico"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Se considera que el Evangelio de Marcos refleja la predicación de:",
+      "opciones": [
+        "Pablo",
+        "Pedro",
+        "Santiago",
+        "Juan el Bautista"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El «secreto mesiánico», rasgo propio de Marcos, consiste en que Jesús:",
+      "opciones": [
+        "Oculta sus milagros a los discípulos",
+        "Prohíbe divulgar su identidad hasta después de la resurrección",
+        "Nunca se llama a sí mismo Hijo del Hombre",
+        "Enseña solo en parábolas incomprensibles"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Marcos presenta a Jesús sobre todo como el Hijo de Dios y el Siervo que:",
+      "opciones": [
+        "Vino a dominar a las naciones",
+        "Vino a servir y a dar su vida por muchos",
+        "Vino a restaurar el trono de David",
+        "Vino a abolir la Ley"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El clímax confesional del Evangelio de Marcos es la declaración del:",
+      "opciones": [
+        "sumo sacerdote",
+        "centurión al pie de la cruz",
+        "apóstol Pedro en Cesarea",
+        "ciego Bartimeo"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El uso frecuente de la palabra «inmediatamente» (euthys) le da a Marcos:",
+      "opciones": [
+        "Un tono poético",
+        "Un ritmo ágil y narrativo",
+        "Un carácter jurídico",
+        "Un estilo epistolar"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El único autor no judío (gentil) del Nuevo Testamento, de profesión médico, fue:",
+      "opciones": [
+        "Marcos",
+        "Mateo",
+        "Lucas",
+        "Juan"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "Lucas dedica su obra a un destinatario llamado:",
+      "opciones": [
+        "Teófilo",
+        "Timoteo",
+        "Tito",
+        "Filemón"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Son parábolas exclusivas del Evangelio de Lucas:",
+      "opciones": [
+        "El sembrador y la oveja perdida",
+        "El Buen Samaritano y el Hijo Pródigo",
+        "Las diez vírgenes y los talentos",
+        "El trigo y la cizaña"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La obra de Lucas forma una unidad de dos volúmenes junto con:",
+      "opciones": [
+        "El Apocalipsis",
+        "La carta a los Hebreos",
+        "Los Hechos de los Apóstoles",
+        "El Evangelio de Marcos"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "Un énfasis teológico distintivo de Lucas es:",
+      "opciones": [
+        "El secreto mesiánico",
+        "La universalidad de la salvación y la compasión por los marginados",
+        "El cumplimiento de la Ley para los judíos",
+        "La preexistencia del Verbo"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El Evangelio de Juan presenta a Jesús como el Verbo (Logos) que:",
+      "opciones": [
+        "Nació en Belén según las profecías",
+        "Existía desde el principio y era Dios",
+        "Fue adoptado como Hijo en su bautismo",
+        "Solo apareció después de la resurrección"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La afirmación «El Verbo se hizo carne y habitó entre nosotros» expresa la doctrina de:",
+      "opciones": [
+        "La resurrección",
+        "La encarnación",
+        "La ascensión",
+        "La expiación"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El Evangelio de Juan suele dividirse en dos grandes partes:",
+      "opciones": [
+        "El Libro de la Ley y el Libro de la Gracia",
+        "El Libro de las Señales y el Libro de la Gloria",
+        "El Libro de Galilea y el Libro de Judea",
+        "El Libro del Reino y el Libro de la Iglesia"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Según Juan 20:30-31, el propósito del evangelio es que el lector:",
+      "opciones": [
+        "Conozca la genealogía de Jesús",
+        "Crea que Jesús es el Cristo, el Hijo de Dios, y tenga vida en su nombre",
+        "Memorice las parábolas del Reino",
+        "Aprenda la historia del pueblo de Israel"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La primera de las señales de Jesús en el Evangelio de Juan fue:",
+      "opciones": [
+        "La curación del ciego de nacimiento",
+        "La multiplicación de los panes",
+        "La conversión del agua en vino en Caná",
+        "La resurrección de Lázaro"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "La señal culminante en Juan, que precipita la decisión de los líderes de eliminar a Jesús, fue:",
+      "opciones": [
+        "El caminar sobre el agua",
+        "La curación del paralítico de Betesda",
+        "La resurrección de Lázaro",
+        "La sanación del hijo del funcionario real"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "La declaración «Yo soy el pan de vida» se relaciona con la señal de:",
+      "opciones": [
+        "La multiplicación de los panes",
+        "Las bodas de Caná",
+        "La piscina de Betesda",
+        "El ciego de nacimiento"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "La declaración «Yo soy la luz del mundo» se vincula especialmente con la señal de:",
+      "opciones": [
+        "La resurrección de Lázaro",
+        "La curación del ciego de nacimiento",
+        "El caminar sobre el agua",
+        "La conversión del agua en vino"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Antes de resucitar a Lázaro, Jesús se declara a sí mismo:",
+      "opciones": [
+        "«Yo soy la puerta de las ovejas»",
+        "«Yo soy la resurrección y la vida»",
+        "«Yo soy el buen pastor»",
+        "«Yo soy la vid verdadera»"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La declaración «Yo soy el camino, la verdad y la vida» fue dicha por Jesús a:",
+      "opciones": [
+        "La multitud en el Templo",
+        "Los fariseos que lo interrogaban",
+        "Sus discípulos, en el discurso de despedida",
+        "Pilato durante el juicio"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "En el Evangelio de Juan, el autor se identifica de manera indirecta como:",
+      "opciones": [
+        "«El discípulo a quien Jesús amaba»",
+        "«El pescador de Galilea»",
+        "«El testigo del Templo»",
+        "«El hijo de Zebedeo» (por su nombre)"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "Las declaraciones absolutas «Yo soy» (p. ej. «antes que Abraham fuese, yo soy») evocan la revelación del nombre divino en:",
+      "opciones": [
+        "Génesis 1",
+        "Éxodo 3:14",
+        "Isaías 6",
+        "Salmo 23"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "El «Paráclito» que Jesús promete en los discursos de despedida (Juan 14-16) es:",
+      "opciones": [
+        "Un ángel guardián",
+        "El Espíritu Santo, Consolador y Guía",
+        "El apóstol Pedro",
+        "La comunidad de los creyentes"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "¿Cuál de las siguientes NO es una de las declaraciones «Yo soy» con predicado en Juan?",
+      "opciones": [
+        "«Yo soy la puerta de las ovejas»",
+        "«Yo soy la vid verdadera»",
+        "«Yo soy el Cordero de Dios»",
+        "«Yo soy el buen pastor»"
+      ],
+      "correcta": 2
+    },
+    {
+      "enunciado": "La confesión de Tomás ante el Resucitado, cumbre cristológica de Juan, fue:",
+      "opciones": [
+        "«Tú eres el Cristo, el Hijo del Dios viviente»",
+        "«Señor mío, y Dios mío»",
+        "«Rabí, ¿dónde moras?»",
+        "«¿A quién iremos?»"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "Un tema teológico central de Juan es el contraste dualista entre:",
+      "opciones": [
+        "Ley y gracia",
+        "Luz y oscuridad",
+        "Cielo y tierra",
+        "Judíos y gentiles"
+      ],
+      "correcta": 1
+    },
+    {
+      "enunciado": "La señal de la curación del paralítico en la piscina de Betesda provoca en Juan un conflicto por:",
+      "opciones": [
+        "Haberse realizado en día de reposo (sábado)",
+        "Haber ocurrido en Samaria",
+        "Haber sido en secreto",
+        "Haber cobrado dinero por la sanación"
+      ],
+      "correcta": 0
+    },
+    {
+      "enunciado": "En el prólogo de Juan, Juan el Bautista cumple la función de:",
+      "opciones": [
+        "Ser la luz verdadera",
+        "Dar testimonio de la luz, sin ser él la luz",
+        "Bautizar a los gentiles",
+        "Escribir el evangelio"
+      ],
+      "correcta": 1
+    }
+  ],
+  "bancoAbiertas": [
+    "Explica el sentido de la declaración «Yo soy el buen pastor» (Juan 10:11) dentro de las declaraciones egō eimí.",
+    "A partir de «Yo soy la vid verdadera» (Juan 15:1-5), explica la relación entre la vid y los pámpanos y su aplicación a la vida del creyente.",
+    "Apoyándote en el prólogo (Juan 1:1-14), explica por qué el Evangelio de Juan afirma la divinidad y preexistencia de Cristo.",
+    "Compara brevemente la manera en que los sinópticos y Juan presentan la identidad de Jesús.",
+    "Explica el significado del «secreto mesiánico» en Marcos y su relación con la revelación progresiva de la identidad de Jesús."
+  ]
+}

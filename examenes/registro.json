@@ -1,0 +1,18 @@
+[
+  {
+    "idExamen": "evangelios-parcial-1",
+    "titulo": "Evaluación Final - ICC Hidekel 2026",
+    "materia": "Los cuatro Evangelios",
+    "descripcion": "Introducción, contexto histórico, fuentes de los evangelios y estudio de Mateo, Marcos, Lucas y Juan.",
+    "duracionMinutos": 30,
+    "activo": true
+  },
+  {
+    "idExamen": "antropologia-parcial-1",
+    "titulo": "Evaluación Recuperación - ICC Hidekel 2026",
+    "materia": "Antropología Bíblica",
+    "descripcion": "La creación del hombre como alma viviente; el cuerpo, el alma y el espíritu; tricotomía y dicotomía; el origen del alma; los estados primitivos de Adán; y la caída del hombre y sus consecuencias.",
+    "duracionMinutos": 20,
+    "activo": true
+  }
+]

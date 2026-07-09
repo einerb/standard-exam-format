@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación en línea .:. Bienvenidos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#152238; --ink-soft:#26374f; --page:#e9ebef; --card:#ffffff;
+    --gold:#2962ff; --gold-deep:#2979ff; --line:#d7dbe2; --muted:#5c6675;
+    --ok:#2e6b54; --ok-soft:#e7f0eb; --warn:#c24b33; --warn-soft:#f7e7e2;
+    --shadow:0 1px 3px rgba(21,34,56,.06), 0 8px 24px rgba(21,34,56,.06);
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:"Montserrat", system-ui, -apple-system, sans-serif; background:var(--page);
+    color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased;}
+  .serif{font-family:"Montserrat", Georgia, "Times New Roman", serif;}
+  .envoltura{max-width:760px; margin:0 auto; padding:0 20px;}
+
+  /* ---- Carga / error ---- */
+  #pantalla-carga{min-height:100dvh; display:flex; align-items:center; justify-content:center;
+    color:var(--muted); font-size:15px;}
+  #pantalla-error{display:none; min-height:100dvh; align-items:center; padding:40px 0;}
+
+  /* ---- Ingreso ---- */
+  #pantalla-ingreso{display:none; min-height:100dvh; align-items:center; padding:40px 0;}
+  .tarjeta-ingreso{background:var(--card); border:1px solid var(--line); border-radius:14px;
+    box-shadow:var(--shadow); padding:44px 40px; width:100%; position:relative; overflow:hidden;}
+  .tarjeta-ingreso::before{content:""; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold));}
+  .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-deep);
+    font-weight:600; margin-bottom:14px;}
+  .tarjeta-ingreso h1{font-size:30px; line-height:1.15; margin:0 0 6px; font-weight:600; color:var(--ink);}
+  .instrucciones{background:#f5f6f8; border-left:3px solid var(--gold); padding:14px 16px;
+    border-radius:0 8px 8px 0; font-size:14.5px; color:var(--ink-soft); margin-bottom:28px;}
+  .meta-linea{display:flex; gap:22px; flex-wrap:wrap; margin-bottom:28px; font-size:14px; color:var(--muted);}
+  .meta-linea strong{color:var(--ink); font-weight:600;}
+  label.campo{display:block; font-size:14px; font-weight:500; margin-bottom:8px;}
+  #entrada-nombre{width:100%; padding:13px 15px; font-size:16px; font-family:inherit;
+    border:1.5px solid var(--line); border-radius:9px; background:#fff; color:var(--ink); transition:border-color .15s;}
+  #entrada-nombre:focus{outline:none; border-color:var(--gold);}
+  #entrada-nombre.error{border-color:var(--warn);}
+  .aviso-error{color:var(--warn); font-size:13.5px; margin:10px 2px 0; min-height:18px; font-weight:500;}
+  .boton{font-family:inherit; font-size:15.5px; font-weight:600; cursor:pointer; border:none;
+    border-radius:9px; padding:13px 24px; background:var(--ink); color:#fff; transition:background .15s, transform .05s;}
+  .boton:hover{background:var(--ink-soft);} .boton:active{transform:translateY(1px);}
+  .boton.ancho{width:100%; margin-top:22px;}
+  .boton.oro{background:var(--gold-deep);} .boton.oro:hover{background:var(--gold);}
+  .boton.fantasma{background:transparent; color:var(--muted); border:1.5px solid var(--line);}
+  .boton.fantasma:hover{background:#f0f1f4; color:var(--ink);}
+  .enlace-volver{display:block; text-align:center; margin-top:18px; color:var(--muted); font-size:13px; text-decoration:none;}
+  .enlace-volver:hover{color:var(--ink); text-decoration:underline;}
+
+  /* ---- Barra del temporizador (firma) ---- */
+  #barra-tiempo{position:sticky; top:0; z-index:50; background:var(--ink); color:#fff;
+    box-shadow:0 2px 12px rgba(21,34,56,.18);}
+  .barra-inner{max-width:760px; margin:0 auto; padding:12px 20px; display:flex; align-items:center;
+    justify-content:space-between; gap:16px;}
+  .barra-titulo{font-size:14px; font-weight:500; opacity:.9; min-width:0; overflow:hidden;
+    text-overflow:ellipsis; white-space:nowrap;}
+  .barra-titulo .quien{opacity:.6; font-size:12.5px;}
+  .reloj{display:flex; align-items:center; gap:9px; font-variant-numeric:tabular-nums;
+    font-family:"Montserrat", Georgia, serif; font-size:24px; font-weight:600; letter-spacing:.02em; white-space:nowrap;}
+  .reloj .punto{width:9px; height:9px; border-radius:50%; background:var(--gold);}
+  #barra-tiempo.alerta{background:#5a1e15;}
+  #barra-tiempo.alerta .reloj{color:#ffd7cd;}
+  #barra-tiempo.alerta .reloj .punto{background:var(--warn); animation:latido 1s infinite;}
+  @keyframes latido{0%{box-shadow:0 0 0 0 rgba(194,75,51,.7)}70%{box-shadow:0 0 0 8px rgba(194,75,51,0)}100%{box-shadow:0 0 0 0 rgba(194,75,51,0)}}
+  .progreso-tiempo{height:5px; background:rgba(255,255,255,.15);}
+  .progreso-tiempo i{display:block; height:100%; background:var(--gold); width:100%; transition:width 1s linear;}
+  #barra-tiempo.alerta .progreso-tiempo i{background:var(--warn);}
+
+  /* ---- Examen ---- */
+  #pantalla-examen{display:none; padding:0 0 60px;}
+  .cabecera-examen{padding:30px 0 10px;}
+  .cabecera-examen h2{font-size:22px; margin:0 0 4px; font-weight:600;}
+  .cabecera-examen p{color:var(--muted); font-size:14px; margin:0;}
+  .contador-avance{position:sticky; top:52px; z-index:40; background:var(--page); padding:12px 0 10px;
+    font-size:13.5px; color:var(--muted); border-bottom:1px solid var(--line); margin-bottom:8px;}
+  .contador-avance b{color:var(--ok);}
+  .pregunta{background:var(--card); border:1px solid var(--line); border-radius:12px;
+    box-shadow:var(--shadow); padding:24px 26px; margin:18px 0;}
+  .pregunta.adicional{border-color:var(--gold); border-style:dashed;}
+  .pregunta .num{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-deep);
+    font-weight:600; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; gap:8px;}
+  .badge{background:var(--gold); color:#fff; border-radius:20px; padding:2px 10px; font-size:10.5px;
+    letter-spacing:.06em; white-space:nowrap;}
+  .pregunta .enunciado{font-family:"Montserrat", Georgia, serif; font-size:19px; line-height:1.45;
+    color:var(--ink); margin-bottom:18px;}
+  .opciones{display:flex; flex-direction:column; gap:10px;}
+  .opcion{display:flex; align-items:flex-start; gap:12px; padding:13px 15px; border:1.5px solid var(--line);
+    border-radius:9px; cursor:pointer; transition:border-color .12s, background .12s; font-size:15.5px;}
+  .opcion:hover{border-color:#b9c0cc; background:#fafbfc;}
+  .opcion.sel{border-color:var(--gold); background:#fbf7ef;}
+  .opcion .marca{flex:0 0 20px; height:20px; border:1.5px solid #b9c0cc; border-radius:50%; margin-top:1px;
+    position:relative; transition:border-color .12s;}
+  .opcion.sel .marca{border-color:var(--gold-deep);}
+  .opcion.sel .marca::after{content:""; position:absolute; inset:4px; border-radius:50%; background:var(--gold-deep);}
+  textarea.abierta{width:100%; min-height:130px; padding:13px 15px; font-family:inherit; font-size:15.5px;
+    border:1.5px solid var(--line); border-radius:9px; resize:vertical; color:var(--ink); line-height:1.5;}
+  textarea.abierta:focus{outline:none; border-color:var(--gold);}
+  .zona-finalizar{margin-top:34px; text-align:center;}
+  .zona-finalizar p{color:var(--muted); font-size:13.5px; margin:0 0 14px;}
+
+  /* ---- Resultado ---- */
+  #pantalla-resultado{display:none; padding:40px 0 60px;}
+  .tarjeta-resultado{background:var(--card); border:1px solid var(--line); border-radius:14px;
+    box-shadow:var(--shadow); padding:40px; text-align:center; position:relative; overflow:hidden;}
+  .tarjeta-resultado::before{content:""; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold));}
+  .sello{width:58px; height:58px; border-radius:50%; margin:0 auto 18px; background:var(--ok-soft);
+    color:var(--ok); display:flex; align-items:center; justify-content:center; font-size:28px;}
+  .sello.tiempo{background:var(--warn-soft); color:var(--warn);}
+  .tarjeta-resultado h2{font-size:24px; margin:0 0 6px; font-weight:600;}
+  .tarjeta-resultado .quien-res{color:var(--muted); margin:0 0 24px;}
+  .puntaje{font-family:"Montserrat", serif; font-size:44px; font-weight:600; color:var(--ink); margin:0;}
+  .puntaje small{font-size:20px; color:var(--muted); font-weight:400;}
+  .puntaje-detalle{font-size:13.5px; color:var(--muted); margin:6px 0 0;}
+  .nota-manual{font-size:13.5px; color:var(--muted); margin:6px 0 22px;}
+  .estado-envio{font-size:14px; font-weight:500; padding:12px 14px; border-radius:9px; margin:0 0 20px;}
+  .estado-envio.ok{background:var(--ok-soft); color:var(--ok);}
+  .estado-envio.error{background:var(--warn-soft); color:var(--warn);}
+  .estado-envio.info{background:#f5f6f8; color:var(--muted);}
+  .caja-envio{text-align:left; background:#f5f6f8; border:1px solid var(--line); border-radius:10px; padding:18px; margin-top:8px;}
+  .caja-envio h3{font-size:14px; margin:0 0 10px; color:var(--ink);}
+  #resumen-texto{width:100%; min-height:150px; font-family:"SFMono-Regular", Consolas, monospace;
+    font-size:12.5px; border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff;
+    color:var(--ink-soft); resize:vertical;}
+  .fila-botones{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+  .fila-botones .boton{flex:1; min-width:130px; padding:11px 16px; font-size:14px;}
+
+  @media (max-width:560px){
+    .tarjeta-ingreso, .tarjeta-resultado{padding:30px 22px;}
+    .tarjeta-ingreso h1{font-size:25px;} .reloj{font-size:21px;}
+    .pregunta{padding:20px 18px;} .contador-avance{top:50px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== CARGA ===================== -->
+<section id="pantalla-carga">
+  <p>Cargando examen…</p>
+</section>
+
+<!-- ===================== ERROR ===================== -->
+<section id="pantalla-error">
+  <div class="envoltura">
+    <div class="tarjeta-ingreso">
+      <div class="eyebrow">Error</div>
+      <h1 class="serif">No se pudo cargar el examen</h1>
+      <p id="error-mensaje" style="color:var(--ink-soft); font-size:14.5px;"></p>
+      <a class="boton oro ancho" style="display:block; text-align:center; text-decoration:none;" href="index.html">Volver a la lista de exámenes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BARRA DEL TEMPORIZADOR ===================== -->
+<div id="barra-tiempo" style="display:none">
+  <div class="barra-inner">
+    <div class="barra-titulo">
+      <span id="barra-nombre-examen"></span><span class="quien" id="barra-quien"></span>
+    </div>
+    <div class="reloj"><span class="punto"></span><span id="reloj-texto">--:--</span></div>
+  </div>
+  <div class="progreso-tiempo"><i id="progreso-barra"></i></div>
+</div>
+
+<!-- ===================== INGRESO ===================== -->
+<section id="pantalla-ingreso">
+  <div class="envoltura">
+    <div class="tarjeta-ingreso">
+      <div class="eyebrow" id="ing-materia">Materia</div>
+      <h1 class="serif" id="ing-titulo">Examen</h1>
+      <div class="instrucciones" id="ing-instrucciones"></div>
+      <div class="meta-linea">
+        <span>Duración: <strong id="ing-duracion"></strong></span>
+        <span>Preguntas: <strong id="ing-npreg"></strong></span>
+      </div>
+      <label class="campo" for="entrada-nombre">Escribe tu nombre y primer apellido</label>
+      <input id="entrada-nombre" type="text" autocomplete="off" placeholder="Nombre y apellidos" spellcheck="false">
+      <div class="aviso-error" id="aviso-error"></div>
+      <button class="boton oro ancho" id="btn-comenzar">Comenzar evaluación</button>
+      <a class="enlace-volver" href="index.html">← Volver a la lista de exámenes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXAMEN ===================== -->
+<section id="pantalla-examen">
+  <div class="envoltura">
+    <div class="cabecera-examen">
+      <h2 class="serif" id="ex-titulo"></h2>
+      <p id="ex-materia"></p>
+    </div>
+    <div class="contador-avance" id="avance">Respondidas: <b>0</b> de 0</div>
+    <div id="lista-preguntas"></div>
+    <div class="zona-finalizar">
+      <p>Cuando termines, finaliza el examen. Esta acción no se puede deshacer.</p>
+      <button class="boton" id="btn-finalizar">Finalizar examen</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULTADO ===================== -->
+<section id="pantalla-resultado">
+  <div class="envoltura">
+    <div class="tarjeta-resultado">
+      <div class="sello" id="res-sello">&#10003;</div>
+      <h2 class="serif" id="res-titulo">Examen finalizado</h2>
+      <p class="quien-res" id="res-quien"></p>
+      <p class="puntaje" id="res-puntaje"></p>
+      <p class="puntaje-detalle" id="res-detalle-puntos"></p>
+      <p class="nota-manual" id="res-nota"></p>
+      <div class="estado-envio info" id="estado-envio">Preparando envío…</div>
+      <div class="caja-envio">
+        <h3>Respaldo de tu resultado</h3>
+        <textarea id="resumen-texto" readonly></textarea>
+        <div class="fila-botones">
+          <button class="boton oro" id="btn-copiar">Copiar resumen</button>
+          <button class="boton fantasma" id="btn-descargar">Descargar (.txt)</button>
+          <button class="boton fantasma" id="btn-reintentar" style="display:none">Reintentar envío</button>
+        </div>
+      </div>
+      <a class="enlace-volver" href="index.html">← Volver a la lista de exámenes</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================== -->
+<!--  MOTOR DEL EXAMEN — genérico para cualquier materia.                 -->
+<!--  Cada examen vive en examenes/<idExamen>.json (config, estudiantes   -->
+<!--  y bancos de preguntas). Esta página se abre como                    -->
+<!--  examen.html?id=<idExamen> y carga ese archivo por fetch.            -->
+<!--  Normalmente no necesitas editar de aquí en adelante.                -->
+<!-- =================================================================== -->
+<script>
+(function(){
+  "use strict";
+
+  const $ = (s) => document.querySelector(s);
+  const normalizar = (t) => (t || "").normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .toLowerCase().replace(/\s+/g, " ").trim();
+
+  let CONFIG = null, ESTUDIANTES = [], BANCO_ICFES = [], BANCO_ABIERTAS = [], MAPA_ALUMNOS = {};
+  let CLAVE = "", DURACION_MS = 0;
+  let sesion = null, intervalo = null;
+
+  function nIcfes(){ return Math.min(CONFIG.preguntasIcfes || BANCO_ICFES.length, BANCO_ICFES.length); }
+
+  function barajar(a){ for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+  // Sortea las ICFES (cuentan) + 1 abierta (adicional). Se guarda en la sesión,
+  // así que al recargar salen exactamente las mismas.
+  function seleccionarPreguntas(){
+    const icfes = barajar(BANCO_ICFES.map(q => ({
+      tipo:"opcion", enunciado:q.enunciado, opciones:q.opciones.slice(),
+      correcta:q.correcta, puntos:q.puntos || 1, cuenta:true
+    }))).slice(0, nIcfes());
+    const sel = icfes;
+    if (CONFIG.incluirAbierta && BANCO_ABIERTAS.length){
+      const ab = barajar(BANCO_ABIERTAS.slice())[0];
+      sel.push({ tipo:"abierta", enunciado:ab, puntos:0, cuenta:false });
+    }
+    return sel;
+  }
+
+  const claveSesion = (norm) => CLAVE + ":alumno:" + norm;
+  const claveActual = () => CLAVE + ":__actual";
+  function guardar(){ if (sesion) localStorage.setItem(claveSesion(sesion.norm), JSON.stringify(sesion)); }
+  function cargarSesion(norm){ try{ const r = localStorage.getItem(claveSesion(norm)); return r ? JSON.parse(r) : null; }catch(e){ return null; } }
+
+  // ---- Ingreso ----
+  function pintarIngreso(){
+    $("#ing-materia").textContent = CONFIG.materia || "Examen";
+    $("#ing-titulo").textContent = CONFIG.titulo;
+    $("#ing-instrucciones").textContent = CONFIG.instrucciones;
+    $("#ing-duracion").textContent = CONFIG.duracionMinutos + " min";
+    const extra = (CONFIG.incluirAbierta && BANCO_ABIERTAS.length) ? " + 1 abierta adicional" : "";
+    $("#ing-npreg").textContent = nIcfes() + " al azar " + extra;
+    document.title = CONFIG.titulo;
+  }
+
+  function intentarComenzar(){
+    const entrada = $("#entrada-nombre"), aviso = $("#aviso-error");
+    const norm = normalizar(entrada.value);
+    if (!norm){ aviso.textContent = "Escribe tu nombre para continuar."; entrada.classList.add("error"); return; }
+    const canonico = MAPA_ALUMNOS[norm];
+    if (!canonico){
+      aviso.textContent = "Ese nombre no está en la lista autorizada. Revisa que esté bien escrito o avísale a tu profesora.";
+      entrada.classList.add("error"); return;
+    }
+    aviso.textContent = ""; entrada.classList.remove("error");
+    let s = cargarSesion(norm);
+    if (s && s.entregado){ sesion = s; mostrarResultado(); return; }
+    if (!s){ s = { nombre:canonico, norm:norm, inicio:Date.now(), preguntas:seleccionarPreguntas(), respuestas:{}, entregado:false }; }
+    sesion = s;
+    localStorage.setItem(claveActual(), norm);
+    guardar(); iniciarExamen();
+  }
+
+  // ---- Examen ----
+  function iniciarExamen(){
+    $("#pantalla-ingreso").style.display = "none";
+    $("#pantalla-resultado").style.display = "none";
+    $("#pantalla-examen").style.display = "block";
+    $("#barra-tiempo").style.display = "block";
+    $("#barra-nombre-examen").textContent = CONFIG.titulo;
+    $("#barra-quien").textContent = " · " + sesion.nombre;
+    $("#ex-titulo").textContent = CONFIG.titulo;
+    $("#ex-materia").textContent = CONFIG.materia || "";
+    pintarPreguntas(); actualizarAvance();
+    tick(); intervalo = setInterval(tick, 1000);
+    window.scrollTo(0, 0);
+  }
+
+  function pintarPreguntas(){
+    const cont = $("#lista-preguntas"); cont.innerHTML = "";
+    sesion.preguntas.forEach((p, pos) => {
+      const div = document.createElement("div");
+      div.className = "pregunta" + (p.cuenta === false ? " adicional" : "");
+      let etiqueta;
+      if (p.cuenta === false){ etiqueta = `<span>Pregunta adicional</span><span class="badge">Cuenta como nota de ayuda</span>`; }
+      else { const pts = p.puntos || 1; etiqueta = `<span>Pregunta ${pos+1}</span><span class="badge" style="background:#eef0f3;color:var(--muted)">${pts} ${pts===1?"punto":"puntos"}</span>`; }
+      let cuerpo = "";
+      if (p.tipo === "opcion"){
+        cuerpo = '<div class="opciones">' + p.opciones.map((op, oi) => {
+          const sel = sesion.respuestas[pos] === oi ? " sel" : "";
+          return `<label class="opcion${sel}" data-p="${pos}" data-o="${oi}"><span class="marca"></span><span>${escapar(op)}</span></label>`;
+        }).join("") + '</div>';
+      } else if (p.tipo === "vf"){
+        cuerpo = '<div class="opciones">' + [["Verdadero", true], ["Falso", false]].map(([et, val]) => {
+          const sel = sesion.respuestas[pos] === val ? " sel" : "";
+          return `<label class="opcion${sel}" data-p="${pos}" data-vf="${val}"><span class="marca"></span><span>${et}</span></label>`;
+        }).join("") + '</div>';
+      } else {
+        const val = sesion.respuestas[pos] || "";
+        cuerpo = `<textarea class="abierta" data-p="${pos}" placeholder="Escribe tu respuesta…">${escapar(val)}</textarea>`;
+      }
+      div.innerHTML = `<div class="num">${etiqueta}</div><div class="enunciado">${escapar(p.enunciado)}</div>${cuerpo}`;
+      cont.appendChild(div);
+    });
+    cont.querySelectorAll(".opcion").forEach(el => {
+      el.addEventListener("click", () => {
+        const pos = +el.dataset.p;
+        const valor = ("o" in el.dataset) ? +el.dataset.o : (el.dataset.vf === "true");
+        sesion.respuestas[pos] = valor;
+        el.parentElement.querySelectorAll(".opcion").forEach(o => o.classList.remove("sel"));
+        el.classList.add("sel"); guardar(); actualizarAvance();
+      });
+    });
+    cont.querySelectorAll("textarea.abierta").forEach(el => {
+      el.addEventListener("input", () => { sesion.respuestas[+el.dataset.p] = el.value; guardar(); actualizarAvance(); });
+    });
+  }
+
+  function respondida(p, r){
+    if (p.tipo === "abierta") return typeof r === "string" && r.trim() !== "";
+    return r !== undefined && r !== null;
+  }
+  function contarCalificables(){
+    let n = 0;
+    sesion.preguntas.forEach((p, pos) => { if (p.cuenta !== false && respondida(p, sesion.respuestas[pos])) n++; });
+    return n;
+  }
+  function actualizarAvance(){
+    $("#avance").innerHTML = `Respondidas: <b>${contarCalificables()}</b> de ${nIcfes()}`;
+  }
+
+  // ---- Reloj ----
+  function tick(){
+    const restante = DURACION_MS - (Date.now() - sesion.inicio);
+    if (restante <= 0){ pintarReloj(0); finalizar(true); return; }
+    pintarReloj(restante);
+  }
+  function pintarReloj(ms){
+    const t = Math.ceil(ms / 1000), h = Math.floor(t/3600), m = Math.floor((t%3600)/60), s = t%60;
+    const d = (x) => String(x).padStart(2, "0");
+    $("#reloj-texto").textContent = h > 0 ? `${d(h)}:${d(m)}:${d(s)}` : `${d(m)}:${d(s)}`;
+    $("#progreso-barra").style.width = Math.max(0, (ms / DURACION_MS) * 100) + "%";
+    $("#barra-tiempo").classList.toggle("alerta", ms <= CONFIG.minutosAlerta * 60 * 1000);
+  }
+
+  // ---- Finalizar ----
+  function finalizar(porTiempo){
+    if (sesion.entregado) return;
+    if (!porTiempo){
+      const faltan = nIcfes() - contarCalificables();
+      const msg = faltan > 0 ? `Te faltan ${faltan} pregunta(s) por responder. ¿Finalizar de todos modos?` : "¿Finalizar y entregar el examen?";
+      if (!confirm(msg)) return;
+    }
+    sesion.entregado = true; sesion.fin = Date.now(); sesion.motivo = porTiempo ? "tiempo" : "manual";
+    guardar(); if (intervalo) clearInterval(intervalo); mostrarResultado();
+  }
+
+  // ---- Resultado ----
+  function calcular(){
+    let obtenido = 0, posibles = 0, hayAbierta = false; const detalle = [];
+    let iCuenta = 0;
+    sesion.preguntas.forEach((p, pos) => {
+      const r = sesion.respuestas[pos];
+      if (p.cuenta === false || p.tipo === "abierta"){
+        hayAbierta = true;
+        const txt = (typeof r === "string" && r.trim()) ? r.trim() : "(sin responder)";
+        detalle.push(`ADICIONAL (no cuenta): ${p.enunciado}\n   Respuesta: ${txt}`);
+      } else {
+        iCuenta++; const pts = p.puntos || 1; posibles += pts;
+        const correcto = (r === p.correcta); if (correcto) obtenido += pts;
+        let elegido;
+        if (p.tipo === "vf") elegido = (r === true ? "Verdadero" : r === false ? "Falso" : "(sin responder)");
+        else elegido = (typeof r === "number" ? p.opciones[r] : "(sin responder)");
+        detalle.push(`${iCuenta}. ${correcto ? "OK " : "X  "} ${elegido}`);
+      }
+    });
+    return { obtenido, posibles, hayAbierta, detalle };
+  }
+
+  // Escala colombiana 1.0 a 5.0, proporcional a los aciertos. No depende de
+  // cuántas preguntas tenga cada examen: 0% de aciertos = 1.0, 100% = 5.0.
+  function calcularNota(obtenido, posibles){
+    if (!posibles) return 1;
+    return Math.round((1 + (obtenido / posibles) * 4) * 10) / 10;
+  }
+
+  function construirResumen(r, porTiempo){
+    const fecha = new Date(sesion.fin || Date.now()).toLocaleString("es-CO");
+    const codigo = `${CONFIG.idExamen}-${sesion.norm.replace(/\s/g,"").slice(0,6)}-${(sesion.fin||Date.now()).toString().slice(-5)}`;
+    const nota = calcularNota(r.obtenido, r.posibles);
+    const texto =
+      `EXAMEN: ${CONFIG.titulo}\n` +
+      `Estudiante: ${sesion.nombre}\n` +
+      `Fecha de entrega: ${fecha}\n` +
+      `Entrega: ${porTiempo ? "por tiempo agotado" : "manual"}\n` +
+      `Nota: ${nota.toFixed(1)} / 5.0\n` +
+      `Puntaje: ${r.obtenido} / ${r.posibles}\n` +
+      `Respondidas (calificables): ${contarCalificables()} de ${nIcfes()}\n` +
+      `----------------------------------------\n` +
+      r.detalle.join("\n") + `\n` +
+      `----------------------------------------\n` +
+      `Código de verificación: ${codigo}`;
+    return { texto, codigo, fecha, nota,
+      payload: {
+        idExamen: CONFIG.idExamen, examen: CONFIG.titulo, materia: CONFIG.materia,
+        estudiante: sesion.nombre, nota: nota, puntaje: r.obtenido,
+        sobre: r.posibles, entrega: porTiempo ? "tiempo" : "manual",
+        fecha: new Date(sesion.fin || Date.now()).toISOString(),
+        codigo: codigo, detalle: r.detalle.join(" | ")
+      } };
+  }
+
+  function mostrarResultado(){
+    if (intervalo) clearInterval(intervalo);
+    $("#pantalla-ingreso").style.display = "none";
+    $("#pantalla-examen").style.display = "none";
+    $("#barra-tiempo").style.display = "none";
+    $("#pantalla-resultado").style.display = "block";
+
+    const r = calcular();
+    const porTiempo = sesion.motivo === "tiempo";
+    $("#res-sello").innerHTML = porTiempo ? "&#9201;" : "&#10003;";
+    $("#res-sello").className = "sello" + (porTiempo ? " tiempo" : "");
+    $("#res-titulo").textContent = porTiempo ? "Se acabó el tiempo" : "Examen finalizado";
+    $("#res-quien").textContent = sesion.nombre;
+    const nota = calcularNota(r.obtenido, r.posibles);
+    $("#res-puntaje").innerHTML = `${nota.toFixed(1)} <small>/ 5.0</small>`;
+    $("#res-detalle-puntos").textContent = `${r.obtenido} de ${r.posibles} puntos correctos`;
+    $("#res-nota").textContent = r.hayAbierta ? "La pregunta adicional no cuenta para la nota; tu profesora la revisa aparte." : "";
+
+    const armado = construirResumen(r, porTiempo);
+    $("#resumen-texto").value = armado.texto;
+    sesion.__payload = armado.payload;
+
+    gestionarEnvio();
+    window.scrollTo(0, 0);
+  }
+
+  // ---- Envío a la plataforma privada del profesor ----
+  async function enviarResultado(payload){
+    if (!CONFIG.urlEnvio) return { estado: "sin-config" };
+    try{
+      if (CONFIG.tipoEnvio === "formspree"){
+        const res = await fetch(CONFIG.urlEnvio, {
+          method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+          body: JSON.stringify(payload) });
+        return res.ok ? { estado:"ok" } : { estado:"error" };
+      } else { // Google Apps Script
+        await fetch(CONFIG.urlEnvio, {
+          method:"POST", mode:"no-cors", headers:{ "Content-Type":"text/plain;charset=utf-8" },
+          body: JSON.stringify(payload) });
+        return { estado:"ok" };
+      }
+    } catch(e){ return { estado:"error", msg:String(e) }; }
+  }
+
+  function pintarEstado(clase, texto){
+    const el = $("#estado-envio"); el.className = "estado-envio " + clase; el.textContent = texto;
+    $("#btn-reintentar").style.display = (clase === "error") ? "block" : "none";
+  }
+
+  async function gestionarEnvio(){
+    if (!CONFIG.urlEnvio){
+      pintarEstado("info", "El envío automático no está configurado todavía. Copia o descarga tu resumen y envíaselo a tu profesora.");
+      return;
+    }
+    if (sesion.enviado){ pintarEstado("ok", "Tus respuestas ya fueron enviadas a tu profesora."); return; }
+    pintarEstado("info", "Enviando tus respuestas a tu profesora…");
+    const res = await enviarResultado(sesion.__payload);
+    if (res.estado === "ok"){
+      sesion.enviado = true; guardar();
+      pintarEstado("ok", "Tus respuestas fueron enviadas a tu profesora. Puedes guardar una copia abajo.");
+    } else {
+      pintarEstado("error", "No se pudo enviar automáticamente. Copia o descarga tu resumen y envíaselo a tu profesora.");
+    }
+  }
+
+  function escapar(t){ const d = document.createElement("div"); d.textContent = String(t); return d.innerHTML; }
+
+  // ---- Carga de la configuración del examen ----
+  function idDesdeUrl(){ return new URLSearchParams(location.search).get("id"); }
+
+  function mostrarError(msg){
+    $("#pantalla-carga").style.display = "none";
+    $("#error-mensaje").textContent = msg;
+    $("#pantalla-error").style.display = "flex";
+  }
+
+  async function cargarConfiguracion(){
+    const id = idDesdeUrl();
+    if (!id){
+      mostrarError("Falta indicar qué examen abrir. Vuelve a la lista y elige una materia.");
+      return;
+    }
+    let datos;
+    try{
+      const res = await fetch(`examenes/${encodeURIComponent(id)}.json`, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      datos = await res.json();
+    } catch(e){
+      mostrarError(`No encontramos el examen «${id}». Puede que el enlace esté mal escrito o el examen ya no esté disponible.`);
+      return;
+    }
+
+    CONFIG = datos.config || {};
+    CONFIG.idExamen = datos.idExamen || id;
+    ESTUDIANTES = datos.estudiantes || [];
+    BANCO_ICFES = datos.bancoIcfes || [];
+    BANCO_ABIERTAS = datos.bancoAbiertas || [];
+    MAPA_ALUMNOS = {};
+    ESTUDIANTES.forEach(n => { MAPA_ALUMNOS[normalizar(n)] = n; });
+
+    CLAVE = "examen:" + CONFIG.idExamen;
+    DURACION_MS = (CONFIG.duracionMinutos || 30) * 60 * 1000;
+
+    // Reinicio para el profesor: abre el examen con &reset al final de la URL.
+    if (location.search.indexOf("reset") !== -1){
+      for (let i = localStorage.length - 1; i >= 0; i--){
+        const k = localStorage.key(i);
+        if (k && k.indexOf(CLAVE) === 0) localStorage.removeItem(k);
+      }
+      const url = new URL(location.href);
+      url.searchParams.delete("reset");
+      location.replace(url.pathname + url.search);
+      return;
+    }
+
+    $("#pantalla-carga").style.display = "none";
+    arrancar();
+  }
+
+  function arrancar(){
+    pintarIngreso();
+    const normActual = localStorage.getItem(claveActual());
+    if (normActual){
+      const s = cargarSesion(normActual);
+      if (s){ sesion = s; if (s.entregado){ mostrarResultado(); } else { iniciarExamen(); } return; }
+    }
+    $("#pantalla-ingreso").style.display = "flex";
+    $("#btn-comenzar").addEventListener("click", intentarComenzar);
+    $("#entrada-nombre").addEventListener("keydown", (e) => { if (e.key === "Enter") intentarComenzar(); });
+    $("#entrada-nombre").addEventListener("input", () => { $("#entrada-nombre").classList.remove("error"); $("#aviso-error").textContent = ""; });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("click", (e) => {
+      const id = e.target && e.target.id;
+      if (id === "btn-finalizar") finalizar(false);
+      if (id === "btn-reintentar") gestionarEnvio();
+      if (id === "btn-copiar"){
+        const ta = $("#resumen-texto"); ta.select();
+        if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(() => { e.target.textContent = "¡Copiado!"; setTimeout(() => e.target.textContent = "Copiar resumen", 1600); }).catch(() => document.execCommand("copy"));
+        else document.execCommand("copy");
+      }
+      if (id === "btn-descargar"){
+        const blob = new Blob([$("#resumen-texto").value], { type:"text/plain;charset=utf-8" });
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+        a.download = `resultado-${sesion.norm.replace(/\s/g,"_")}.txt`; a.click(); URL.revokeObjectURL(a.href);
+      }
+    });
+    cargarConfiguracion();
+  });
+})();
+</script>
+</body>
+</html>
