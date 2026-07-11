@@ -10,7 +10,7 @@
     "incluirAbierta":true,
     "urlEnvio":"https://script.google.com/macros/s/AKfycbzGV7_g22zd9Yyu05vJO1zPPwfWpqfmJIUdUVgZcCoVQwbqiu31JmcHsVuMSw0gsubO-w/exec",
     "tipoEnvio":"google",
-    "activo":false
+    "activo":true
   },
   "estudiantes":[
     "Ivan Hernandez",
@@ -138,16 +138,6 @@
       "correcta":2
     },
     {
-      "enunciado":"El alma, según la presentación, se define como:",
-      "opciones":[
-        "La parte material del hombre",
-        "La vida consciente: sede de pensamientos, emociones y voluntad",
-        "El soplo que vuelve a Dios",
-        "El polvo de la tierra"
-      ],
-      "correcta":1
-    },
-    {
       "enunciado":"Según Eclesiastés 12:7, al morir el hombre, el espíritu:",
       "opciones":[
         "Se duerme en el polvo",
@@ -238,7 +228,7 @@
       "correcta":1
     },
     {
-      "enunciado":"El Traduccionismo (traducianismo) enseña que el alma:",
+      "enunciado":"El Traduccionismo enseña que el alma:",
       "opciones":[
         "Es creada de la nada en cada nacimiento",
         "Se transmite junto con el cuerpo de los padres en la procreación",
@@ -288,15 +278,6 @@
       "correcta":1
     },
     {
-      "enunciado":"La prueba de Adán se compara en la presentación con la prueba de:",
-      "opciones":[
-        "Job",
-        "Abraham al ofrecer a Isaac",
-        "Moisés",
-        "Noé"
-      ],
-      "correcta":1
-    },
     {
       "enunciado":"En Génesis 3 el agente visible de la tentación fue la serpiente, pero el verdadero tentador fue:",
       "opciones":[
@@ -304,16 +285,6 @@
         "Satanás",
         "Caín",
         "La mujer"
-      ],
-      "correcta":1
-    },
-    {
-      "enunciado":"Según la presentación, un deseo se convierte en lujuria cuando:",
-      "opciones":[
-        "Es muy intenso",
-        "Es contrario al Espíritu",
-        "Se repite muchas veces",
-        "Involucra el cuerpo"
       ],
       "correcta":1
     },
@@ -328,7 +299,7 @@
       "correcta":1
     },
     {
-      "enunciado":"La muerte física ocurre, según la presentación, cuando:",
+      "enunciado":"La muerte física ocurre cuando:",
       "opciones":[
         "El alma deja de pensar",
         "El espíritu se separa del cuerpo y el cuerpo vuelve al polvo",
@@ -352,7 +323,7 @@
     "Explica la diferencia entre la tricotomía y la dicotomía, indicando un texto bíblico que respalde cada postura.",
     "Describe las tres teorías sobre el origen del alma (Preexistencia, Creacionismo y Traduccionismo) y menciona un defensor de cada una.",
     "A partir de Génesis 2:7, explica en qué sentido el hombre es «alma viviente» y cómo se relacionan el elemento terrenal y el aliento de Dios.",
-    "Explica las tres categorías de muerte (física, espiritual y eterna) según la presentación, con un texto de apoyo para cada una.",
+    "Explica las tres categorías de muerte (física, espiritual y eterna), con un texto de apoyo para cada una.",
     "Explica por qué la prueba de Adán se describe como «personal, no moral» y su semejanza con la prueba de Abraham."
   ]
 }

@@ -10,7 +10,7 @@
     "incluirAbierta": true,
     "urlEnvio": "https://script.google.com/macros/s/AKfycbzGV7_g22zd9Yyu05vJO1zPPwfWpqfmJIUdUVgZcCoVQwbqiu31JmcHsVuMSw0gsubO-w/exec",
     "tipoEnvio": "google",
-    "activo": false
+    "activo": true
   },
   "estudiantes": [
     "Edwin Osorio",
@@ -135,16 +135,6 @@
         "Jericó"
       ],
       "correcta": 2
-    },
-    {
-      "enunciado": "El hallazgo arqueológico que confirma la existencia del gobernador que condenó a Jesús es:",
-      "opciones": [
-        "La inscripción de Pilato en Cesarea",
-        "Los Rollos del Mar Muerto",
-        "El Muro de los Lamentos",
-        "La casa de Pedro en Cafarnaúm"
-      ],
-      "correcta": 0
     },
     {
       "enunciado": "En el mundo de los evangelios, los publicanos eran vistos por el pueblo como:",
@@ -307,16 +297,6 @@
       "correcta": 0
     },
     {
-      "enunciado": "Son parábolas exclusivas del Evangelio de Lucas:",
-      "opciones": [
-        "El sembrador y la oveja perdida",
-        "El Buen Samaritano y el Hijo Pródigo",
-        "Las diez vírgenes y los talentos",
-        "El trigo y la cizaña"
-      ],
-      "correcta": 1
-    },
-    {
       "enunciado": "La obra de Lucas forma una unidad de dos volúmenes junto con:",
       "opciones": [
         "El Apocalipsis",
@@ -353,16 +333,6 @@
         "La encarnación",
         "La ascensión",
         "La expiación"
-      ],
-      "correcta": 1
-    },
-    {
-      "enunciado": "El Evangelio de Juan suele dividirse en dos grandes partes:",
-      "opciones": [
-        "El Libro de la Ley y el Libro de la Gracia",
-        "El Libro de las Señales y el Libro de la Gloria",
-        "El Libro de Galilea y el Libro de Judea",
-        "El Libro del Reino y el Libro de la Iglesia"
       ],
       "correcta": 1
     },
@@ -477,26 +447,6 @@
       "correcta": 2
     },
     {
-      "enunciado": "La confesión de Tomás ante el Resucitado, cumbre cristológica de Juan, fue:",
-      "opciones": [
-        "«Tú eres el Cristo, el Hijo del Dios viviente»",
-        "«Señor mío, y Dios mío»",
-        "«Rabí, ¿dónde moras?»",
-        "«¿A quién iremos?»"
-      ],
-      "correcta": 1
-    },
-    {
-      "enunciado": "Un tema teológico central de Juan es el contraste dualista entre:",
-      "opciones": [
-        "Ley y gracia",
-        "Luz y oscuridad",
-        "Cielo y tierra",
-        "Judíos y gentiles"
-      ],
-      "correcta": 1
-    },
-    {
       "enunciado": "La señal de la curación del paralítico en la piscina de Betesda provoca en Juan un conflicto por:",
       "opciones": [
         "Haberse realizado en día de reposo (sábado)",
@@ -518,7 +468,6 @@
     }
   ],
   "bancoAbiertas": [
-    "Explica el sentido de la declaración «Yo soy el buen pastor» (Juan 10:11) dentro de las declaraciones egō eimí.",
     "A partir de «Yo soy la vid verdadera» (Juan 15:1-5), explica la relación entre la vid y los pámpanos y su aplicación a la vida del creyente.",
     "Apoyándote en el prólogo (Juan 1:1-14), explica por qué el Evangelio de Juan afirma la divinidad y preexistencia de Cristo.",
     "Compara brevemente la manera en que los sinópticos y Juan presentan la identidad de Jesús.",
