@@ -10,7 +10,7 @@
     "incluirAbierta":true,
     "urlEnvio":"https://script.google.com/macros/s/AKfycbzGV7_g22zd9Yyu05vJO1zPPwfWpqfmJIUdUVgZcCoVQwbqiu31JmcHsVuMSw0gsubO-w/exec",
     "tipoEnvio":"google",
-    "activo":true
+    "activo":false
   },
   "estudiantes":[
     "Ivan Hernandez",
